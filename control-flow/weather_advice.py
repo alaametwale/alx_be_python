@@ -1,0 +1,16 @@
+# Program: Weather Recommendation
+# Author: ALX Student
+# Description: Gives clothing advice based on weather conditions
+
+# Ask the user about the weather
+weather = input("What's the weather like today? (sunny/rainy/cold): ").lower()
+
+# Give recommendations based on input
+if weather == "sunny":
+    print("Wear a t-shirt and sunglasses.")
+elif weather == "rainy":
+    print("Don't forget your umbrella and a raincoat.")
+elif weather == "cold":
+    print("Make sure to wear a warm coat and a scarf.")
+else:
+    print("Sorry, I don't have recommendations for this weather.")
