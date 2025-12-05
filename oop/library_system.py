@@ -1,29 +1,28 @@
 class Book:
-    def __init__(self, title, author, year):
+    def __init__(self, title, author):
         self.title = title
         self.author = author
-        self.year = year
 
     def __str__(self):
-        return f"{self.title} by {self.author} ({self.year})"
-
-
-class PrintBook(Book):
-    def __init__(self, title, author, year, page_count):
-        super().__init__(title, author, year)
-        self.page_count = page_count
-
-    def __str__(self):
-        return f"PrintBook: {self.title} by {self.author} ({self.year}) - {self.page_count} pages"
+        return f"Book: {self.title} by {self.author}"
 
 
 class EBook(Book):
-    def __init__(self, title, author, year, file_size):
-        super().__init__(title, author, year)
+    def __init__(self, title, author, file_size):
+        super().__init__(title, author)
         self.file_size = file_size
 
     def __str__(self):
-        return f"EBook: {self.title} by {self.author} ({self.year}) - {self.file_size}MB"
+        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
+
+
+class PrintBook(Book):
+    def __init__(self, title, author, page_count):
+        super().__init__(title, author)
+        self.page_count = page_count
+
+    def __str__(self):
+        return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
 
 
 class Library:
@@ -40,14 +39,16 @@ class Library:
         return "\n".join(self.list_books())
 
 
-# Example output for checker
+# --- Example used by the checker ---
 if __name__ == "__main__":
     library = Library()
 
-    p1 = PrintBook("1984", "George Orwell", 1949, 328)
-    e1 = EBook("Python Basics", "Alaa Meto", 2024, 5)
+    classic_book = Book("Pride and Prejudice", "Jane Austen")
+    ebook = EBook("Snow Crash", "Neal Stephenson", 500)
+    printbook = PrintBook("The Catcher in the Rye", "J.D. Salinger", 234)
 
-    library.add_book(p1)
-    library.add_book(e1)
+    library.add_book(classic_book)
+    library.add_book(ebook)
+    library.add_book(printbook)
 
     print(library)
