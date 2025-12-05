@@ -9,12 +9,12 @@ class Book:
 
 
 class PrintBook(Book):
-    def __init__(self, title, author, year, pages):
+    def __init__(self, title, author, year, page_count):
         super().__init__(title, author, year)
-        self.pages = pages
+        self.page_count = page_count
 
     def __str__(self):
-        return f"PrintBook: {self.title} by {self.author} ({self.year}) - {self.pages} pages"
+        return f"PrintBook: {self.title} by {self.author} ({self.year}) - {self.page_count} pages"
 
 
 class EBook(Book):
@@ -40,7 +40,7 @@ class Library:
         return "\n".join(self.list_books())
 
 
-# ------- Example Output for Checker -------
+# Example output for checker
 if __name__ == "__main__":
     library = Library()
 
