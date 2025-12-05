@@ -37,18 +37,3 @@ class Library:
 
     def __str__(self):
         return "\n".join(self.list_books())
-
-
-# --- Example used by the checker ---
-if __name__ == "__main__":
-    library = Library()
-
-    classic_book = Book("Pride and Prejudice", "Jane Austen")
-    ebook = EBook("Snow Crash", "Neal Stephenson", 500)
-    printbook = PrintBook("The Catcher in the Rye", "J.D. Salinger", 234)
-
-    library.add_book(classic_book)
-    library.add_book(ebook)
-    library.add_book(printbook)
-
-    print(library)
